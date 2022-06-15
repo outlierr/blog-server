@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.outlierr.blog.api.mapper.CategoryTreeMapper">
+
+    <resultMap id="BaseResultMap" type="com.outlierr.blog.api.entity.CategoryTree">
+            <id property="ancestor" column="ancestor" jdbcType="INTEGER"/>
+            <id property="descendant" column="descendant" jdbcType="INTEGER"/>
+            <result property="distance" column="distance" jdbcType="OTHER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ancestor,descendant,distance
+    </sql>
+</mapper>

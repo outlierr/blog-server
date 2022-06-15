@@ -1,0 +1,64 @@
+server:
+  port: 8081
+  
+  # SameSite 默认就是 Lax，Secure 取决于是否使用 HTTPS
+  servlet:
+    session:
+      cookie:
+        domain: localhost
+
+
+spring:
+#  jackson:
+#    # 过滤掉为 null 的属性，可以减小体积并隐藏完整的格式
+#    default-property-inclusion: non_null
+#
+#    # java.time 里的时间全部序列化为毫秒
+#    serialization:
+#      write-date-timestamps-as-nanoseconds: false
+#      write-dates-as-timestamps: true
+#      write-enums-using-index: true
+#
+#    deserialization:
+#      read-date-timestamps-as-nanoseconds: false
+  datasource:
+    url: jdbc:mysql://localhost/my_blog
+    username: root
+    password: qq123321
+
+  session:
+    store-type: redis
+    redis:
+      namespace: blog
+    # 用户多久不访问则登录失效，注意这跟 Cookie 的有效期不是一回事。 设置的是 session 保存在redis中的过期时间
+    # spring session 的 remember-me cookie 是过期时间为 Integer.MAX
+    timeout: 30d
+
+  redis:
+    host: localhost
+    port: 6379
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+app:
+  cors:
+    allow-credentials: true
+    allowed-origin-patterns: "*"
+    allowed-methods: "*"
+    allowed-headers: "*"
+    exposed-headers:
+      - Location
+      - X-RateLimit-Wait
+
+  data-dir: /var/lib/blog/data
+#logging:
+#  level:
+#    root: debug

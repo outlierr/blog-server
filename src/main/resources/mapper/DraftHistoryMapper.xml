@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.outlierr.blog.api.mapper.DraftHistoryMapper">
+
+    <resultMap id="BaseResultMap" type="com.outlierr.blog.api.entity.DraftHistory">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <id property="saveCount" column="save_count" jdbcType="INTEGER"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="summary" column="summary" jdbcType="VARCHAR"/>
+            <result property="keywords" column="keywords" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,save_count,title,
+        content,summary,keywords,
+        create_time
+    </sql>
+</mapper>

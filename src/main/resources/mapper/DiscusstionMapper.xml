@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.outlierr.blog.api.mapper.DiscusstionMapper">
+
+    <resultMap id="BaseResultMap" type="com.outlierr.blog.api.entity.Discusstion">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="type" column="type" jdbcType="TINYINT"/>
+            <result property="objectId" column="object_id" jdbcType="INTEGER"/>
+            <result property="parent" column="parent" jdbcType="INTEGER"/>
+            <result property="floor" column="floor" jdbcType="INTEGER"/>
+            <result property="nestId" column="nest_id" jdbcType="INTEGER"/>
+            <result property="nestFloor" column="nest_floor" jdbcType="INTEGER"/>
+            <result property="nestSize" column="nest_size" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="state" column="state" jdbcType="TINYINT"/>
+            <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,type,object_id,
+        parent,floor,nest_id,
+        nest_floor,nest_size,user_id,
+        nickname,content,state,
+        deleted,create_time,address
+    </sql>
+</mapper>
